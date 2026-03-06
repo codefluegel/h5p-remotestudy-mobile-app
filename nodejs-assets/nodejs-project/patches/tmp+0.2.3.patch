@@ -1,0 +1,13 @@
+diff --git a/node_modules/tmp/lib/tmp.js b/node_modules/tmp/lib/tmp.js
+index 84aa1c5..246c78b 100644
+--- a/node_modules/tmp/lib/tmp.js
++++ b/node_modules/tmp/lib/tmp.js
+@@ -667,7 +667,7 @@ function setGracefulCleanup() {
+  * @returns {string} the currently configured tmp dir
+  */
+ function _getTmpDir(options) {
+-  return path.resolve(options && options.tmpdir || os.tmpdir());
++  return path.resolve(options && options.tmpdir || process.env.TMPDIR || os.tmpdir());
+ }
+ 
+ // Install process exit listener

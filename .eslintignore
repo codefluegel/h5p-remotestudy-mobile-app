@@ -1,0 +1,13 @@
+babel.config.js
+project.plugin.js
+coverage/
+dist/
+index.js
+metro.config.js
+ios/
+android/
+scripts/reset-project.js
+nodejs-assets/nodejs-project/build
+nodejs-assets/nodejs-project/assets
+nodejs-assets/nodejs-project/*.js
+*.d.ts

@@ -1,0 +1,445 @@
+{
+  "intro": {
+    "slider": {
+      "heading": "Einfach H5P-Kurse einrichten und teilen",
+      "heading1": "Interaktive Inhalte erstellen",
+      "heading2": "Überall und jederzeit lernen",
+      "heading3": "Lernfortschritt verfolgen",
+      "subheading": "Die einfachste Möglichkeit, Lerninhalte Ihren Teilnehmenden zur Verfügung zu stellen",
+      "subheading1": "Erstellen und teilen Sie interaktive H5P-Kurse direkt von Ihrem Gerät",
+      "subheading2": "Lernende können ansprechende Inhalte jederzeit und überall abrufen, auch offline",
+      "subheading3": "Verfolgen Sie Fortschritt und Ergebnisse mit umfassender Analyse und Synchronisation"
+    },
+    "button": {
+      "next": "WEITER",
+      "start": "LOS GEHT'S"
+    }
+  },
+  "role": {
+    "title": {
+      "main": "Wer bist du?"
+    },
+    "card": {
+      "teacher_title": "Lehrer",
+      "teacher_desc": "Ich bin ein Lehrer",
+      "student_title": "Schüler",
+      "student_desc": "Ich bin ein Lernender"
+    },
+    "button": {
+      "select": "Auswählen"
+    }
+  },
+  "login": {
+    "title": {
+      "register": "Registrieren",
+      "login": "Anmelden"
+    },
+    "success": {
+      "registered": "✓ Registrierung erfolgreich!",
+      "check_email": "Überprüfen Sie Ihre E-Mail auf den Verifizierungslink.",
+      "redirecting": "Umleitung zur Anmeldung..."
+    },
+    "info": {
+      "signup_title": "Konto erstellen",
+      "signup_text": "Registrieren Sie sich mit Ihrer E-Mail-Adresse. Sie erhalten einen Verifizierungslink, um Ihr Konto zu aktivieren. Dieser Link ist erforderlich, um auf die Plattform zuzugreifen. Kehren Sie danach zur App zurück.",
+      "login_title": "Willkommen zurück",
+      "login_text": "Melden Sie sich mit Ihrer E-Mail und Ihrem Passwort an, um auf Ihre Kurse und Lernmaterialien zuzugreifen."
+    },
+    "placeholder": {
+      "email": "E-Mail",
+      "password": "Passwort"
+    },
+    "button": {
+      "register": "Registrieren",
+      "login": "Anmelden"
+    },
+    "link": {
+      "switch_to_login": "Haben Sie bereits ein Konto? Anmelden",
+      "switch_to_register": "Haben Sie kein Konto? Registrieren",
+      "forgot_password": "Passwort vergessen?",
+      "back_to_intro": "Zur Rollenauswahl"
+    },
+    "toast": {
+      "registration_sent": "Registrierungslink an Ihre E-Mail gesendet.",
+      "error_register": "Registrierung fehlgeschlagen",
+      "error_login": "Anmeldung fehlgeschlagen"
+    },
+    "error": {
+      "email_required": "Bitte geben Sie Ihre E-Mail ein",
+      "password_required": "Bitte geben Sie Ihr Passwort ein"
+    }
+  },
+  "reset_password": {
+    "title": {
+      "main": "Geben Sie Ihre E-Mail ein"
+    },
+    "info": {
+      "title": "Passwort zurücksetzen",
+      "text": "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts. Überprüfen Sie Ihre E-Mail und folgen Sie den Anweisungen, um ein neues Passwort zu erstellen."
+    },
+    "placeholder": {
+      "email": "E-Mail"
+    },
+    "button": {
+      "reset": "Zurücksetzen"
+    },
+    "toast": {
+      "success": "Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail gesendet.",
+      "error": "Passwort zurücksetzen fehlgeschlagen"
+    },
+    "error": {
+      "email_required": "Bitte geben Sie Ihre E-Mail ein"
+    }
+  },
+  "student": {
+    "tab": {
+      "courses": "Kurse",
+      "results": "Ergebnisse",
+      "profile": "Profil"
+    },
+    "header": {
+      "courses": "Kurse",
+      "results": "Ergebnisse",
+      "profile": "Profil"
+    }
+  },
+  "teacher": {
+    "tab": {
+      "courses": "Kurse",
+      "add_course": "Kurs hinzufügen",
+      "profile": "Profil"
+    },
+    "header": {
+      "all_courses": "Alle Kurse",
+      "add_course": "Kurs hinzufügen",
+      "join_course": "Kurs beitreten"
+    }
+  },
+  "setup": {
+    "title": {
+      "create_course": "Neuen Kurs erstellen",
+      "explore_courses": "Kurse erkunden"
+    },
+    "info": {
+      "instructions": "Um einen neuen Kurs für Ihre Schüler hinzuzufügen, geben Sie einfach den Kursnamen ein und geben Sie einen Download-Link zu Ihrer H5P-Datei ein oder laden Sie eine Datei hoch.",
+      "student_ready": "Sie sind bereit, verfügbare Kurse anzuzeigen und beizutreten. Klicken Sie unten auf die Schaltfläche, um zu beginnen!"
+    },
+    "placeholder": {
+      "course_name": "Kursname",
+      "download_link": "Download-Link (z.B. .zip-Datei)"
+    },
+    "link": {
+      "upload_file": "Datei hochladen, um einen Link zu erhalten"
+    },
+    "button": {
+      "download_course": "KURS HERUNTERLADEN",
+      "view_courses": "KURSE ANZEIGEN"
+    },
+    "progress": {
+      "downloading": "Kurs wird heruntergeladen..."
+    },
+    "alert": {
+      "name_missing_title": "Kursname fehlt",
+      "name_missing_msg": "Bitte geben Sie einen Namen für Ihren Kurs ein.",
+      "link_needed_title": "Link erforderlich",
+      "link_needed_msg": "Bitte geben Sie einen gültigen Download-Link an.",
+      "invalid_link_title": "Ungültiger Link",
+      "invalid_link_msg": "Der angegebene Download-Link ist keine gültige URL.",
+      "download_failed_title": "Download fehlgeschlagen",
+      "download_failed_msg": "Der Kurs konnte nicht heruntergeladen werden. Bitte überprüfen Sie den Link und versuchen Sie es erneut."
+    }
+  },
+  "course": {
+    "empty": {
+      "no_courses_teacher": "Keine Kurse verfügbar. Bitte kontaktieren Sie Ihren Lehrer.",
+      "no_courses_student": "Keine Kurse verfügbar. Bitte kontaktieren Sie Ihren Lehrer."
+    }
+  },
+  "results": {
+    "empty": {
+      "no_results": "Noch keine Ergebnisse. Versuchen Sie, einen Kurs abzuschließen, um Ihre Ergebnisse hier zu sehen."
+    }
+  },
+  "course_units": {
+    "tab": {
+      "units": "Einheiten",
+      "results": "Ergebnisse",
+      "students": "Schüler"
+    },
+    "loading": "Download läuft...",
+    "download": {
+      "title": "Kurs herunterladen",
+      "body": "Laden Sie diesen Kurs herunter, um auf die Einheiten zuzugreifen."
+    },
+    "alert": {
+      "delete_title": "Löschen bestätigen",
+      "delete_msg": "Sind Sie sich absolut sicher, dass Sie den Kurs \"{{course_name}}\" löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "clear_local_title": "Heruntergeladene Inhalte entfernen?",
+      "clear_local_msg": "Heruntergeladene Inhalte für \"{{course_name}}\" von diesem Gerät entfernen? Sie können sie später erneut herunterladen.",
+      "download_required_title": "Download erforderlich",
+      "download_required_msg": "Bitte laden Sie den Kurs zuerst herunter.",
+      "download_missing_title": "Download-Link fehlt",
+      "download_missing_msg": "Für diesen Kurs ist kein Download-Link vorhanden.",
+      "download_failed_title": "Download fehlgeschlagen",
+      "download_failed_msg": "Der Kurs konnte nicht heruntergeladen werden. Bitte versuchen Sie es erneut."
+    },
+    "button": {
+      "cancel": "Abbrechen",
+      "delete": "Löschen",
+      "download": "Herunterladen"
+    },
+    "sort": {
+      "label": "Sortieren",
+      "manual": "Manuell",
+      "name_asc": "A-Z",
+      "name_desc": "Z-A"
+    },
+    "sort_groups": {
+      "label": "Gruppen",
+      "manual": "Manuell",
+      "name_asc": "A-Z",
+      "name_desc": "Z-A"
+    }
+  },
+  "unit_webview": {
+    "toast": {
+      "offline": "Offline",
+      "saved_offline": "Ergebnisse werden lokal gespeichert und später hochgeladen.",
+      "uploaded": "Ergebnisse hochgeladen",
+      "saved_success": "Ihre Punkte wurden erfolgreich gespeichert."
+    },
+    "error": {
+      "no_id": "Keine ID angegeben.",
+      "cannot_display": "Diese Datei kann nicht angezeigt werden."
+    },
+    "loading": "Inhalte werden geladen..."
+  },
+  "statistics": {
+    "empty": {
+      "no_results": "Keine Ergebnisse für diese Einheit.",
+      "no_units": "Keine Einheiten für diesen Kurs gefunden."
+    }
+  },
+  "user_list": {
+    "placeholder": {
+      "email": "Benutzer-E-Mail hinzufügen"
+    },
+    "alert": {
+      "error_title": "Fehler",
+      "email_required": "Bitte geben Sie eine E-Mail-Adresse ein.",
+      "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "duplicate_email": "Diese E-Mail ist bereits in der Liste.",
+      "fetch_failed": "Benutzerliste konnte nicht abgerufen werden.",
+      "remove_failed": "Benutzer konnte nicht vom Server entfernt werden.",
+      "sharing_failed": "Einladungslink konnte nicht geteilt werden. Bitte versuchen Sie es erneut."
+    },
+    "toast": {
+      "share": "Schauen Sie sich den Kurs in der Remote Study-App an"
+    }
+  },
+  "modal": {
+    "group_select": {
+      "header": "In Gruppe verschieben",
+      "new_group": "Neue Gruppe"
+    },
+    "file_upload": {
+      "title": "Datei hochladen",
+      "info": "Wählen Sie eine Datei von Ihrem Gerät aus. Sie können nicht zwei Mal die gleiche Datei hochladen. Sobald der Upload abgeschlossen und überprüft ist, wird der Download-Link automatisch unten angezeigt.",
+      "placeholder_filename": "Dateiname (z.B. course.zip)",
+      "placeholder_uri": "Lokale Datei-URI (z.B. file:///... oder content://...)",
+      "button": {
+        "pick": "Datei auswählen",
+        "cancel": "Abbrechen",
+        "upload": "Hochladen",
+        "uploading": "Lädt hoch..."
+      },
+      "alert": {
+        "filename_title": "Dateiname erforderlich",
+        "filename_msg": "Bitte geben Sie einen Dateinamen an.",
+        "uri_title": "Datei-URI erforderlich",
+        "uri_msg": "Bitte fügen Sie eine lokale Datei-URI ein (oder verwenden Sie eine Dateiauswahl) zum Hochladen.",
+        "failed_title": "Upload fehlgeschlagen",
+        "failed_msg": "Datei konnte nicht hochgeladen werden. Versuchen Sie es erneut.",
+        "pick_title": "Dateiauswahl fehlgeschlagen",
+        "pick_msg": "Datei konnte nicht ausgewählt werden. Versuchen Sie es erneut."
+      }
+    },
+    "progress": {
+      "downloading": "Kurs wird heruntergeladen..."
+    },
+    "legal": {
+      "button_close": "Schließen"
+    },
+    "edit_unit": {
+      "label_title": "Titel",
+      "label_group": "Gruppe auswählen:",
+      "picker_none": "Keine",
+      "button_save": "SPEICHERN"
+    },
+    "delete_account": {
+      "title": "Konto löschen",
+      "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Ihr Konto und alle zugeordneten Daten werden gelöscht. Bitte geben Sie Ihr Passwort ein, um zu bestätigen.",
+      "label_password": "Passwort",
+      "placeholder_password": "Geben Sie Ihr Passwort ein",
+      "button": {
+        "cancel": "Abbrechen",
+        "delete": "Konto löschen",
+        "deleting": "Lösche..."
+      },
+      "alert": {
+        "error": "Fehler",
+        "password_required": "Bitte geben Sie Ihr Passwort ein",
+        "failed": "Konto konnte nicht gelöscht werden"
+      }
+    },
+    "status": {
+      "title": "Kursstatus festlegen",
+      "button": {
+        "new": "Neuer Kurs",
+        "progress": "Kurs in Bearbeitung",
+        "completed": "Kurs abgeschlossen"
+      }
+    },
+    "add_group": {
+      "title": "Titel hinzufügen",
+      "placeholder": "Titel",
+      "button_save": "SPEICHERN"
+    },
+    "two_button": {
+      "close": "✕"
+    },
+    "communication": {
+      "title": "Kommunikation",
+      "button_share": "Mit Benutzer teilen"
+    }
+  },
+  "submenu": {
+    "export_results": "Ergebnisse exportieren",
+    "sync_courses": "Kurse synchronisieren",
+    "save_course": "Kurs speichern",
+    "clear_local_data": "Kursdaten entfernen",
+    "delete_course": "Kurs löschen",
+    "sync_results": "Ausstehende Ergebnisse synchronisieren"
+  },
+  "profile": {
+    "label": {
+      "email": "E-Mail:",
+      "role": "Rolle:"
+    },
+    "section": {
+      "legal": "Rechtliche Informationen",
+      "language": "Sprache"
+    },
+    "language": {
+      "english": "English",
+      "german": "Deutsch"
+    },
+    "link": {
+      "impressum": "Impressum",
+      "terms": "Nutzungsbedingungen",
+      "privacy": "Datenschutzrichtlinie"
+    },
+    "button": {
+      "logout": "Abmelden",
+      "delete_account": "Konto löschen",
+      "cancel": "Abbrechen",
+      "delete": "Löschen"
+    },
+    "alert": {
+      "delete_title": "Konto löschen?",
+      "delete_msg": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+    },
+    "funding": {
+      "title": "Kofinanziert von der Europäischen Union",
+      "text": "Von der Europäischen Union finanziert. Die geäußerten Ansichten und Meinungen entsprechen jedoch ausschließlich denen der Autorin bzw. des Autors und spiegeln nicht unbedingt die der Europäischen Union oder der Exekutivagentur Bildung, Audiovisuelles und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden."
+    }
+  },
+  "header": {
+    "selection": {
+      "text": "Ausgewählt",
+      "move_link": "In Gruppe verschieben"
+    },
+    "group_move": {
+      "title": "In Gruppe verschieben"
+    },
+    "back": "Zurück"
+  },
+  "button": {
+    "floating": {
+      "group": "GRUPPE"
+    },
+    "edit": {
+      "cancel": "ABBRECHEN",
+      "delete": "LÖSCHEN",
+      "save": "SPEICHERN"
+    }
+  },
+  "units_tab": {
+    "loading": "Download läuft",
+    "count_suffix": "Einträge"
+  },
+  "results_table": {
+    "empty": "Kein Ergebnis verfügbar",
+    "header": {
+      "main": "Gesamtpunktzahl der Einheit",
+      "type": "Typ",
+      "raw": "Roh",
+      "max": "Max",
+      "section": "Abschnitt",
+      "points": "Punkte"
+    },
+    "cell_total": "Gesamt",
+    "empty_scores": "Keine detaillierten Ergebnisse gefunden.",
+    "empty_sections": "Keine Abschnitte im letzten Aufschlüsselungseintrag.",
+    "error_format": "Unerwartetes Ergebnisformat."
+  },
+  "card": {
+    "course": {
+      "results": "Ergebnisse",
+      "status_new": "NEU",
+      "toast_title": "Kursstatus",
+      "toast_msg": "Dieser Kurs hat derzeit den Status {status}. Nur Lehrer können den Status ändern."
+    }
+  },
+  "export": {
+    "error_title": "Exportfehler",
+    "missing_id": "Kurs-ID für Export fehlt.",
+    "no_results": "Keine Ergebnisse zum Exportieren gefunden.",
+    "no_data": "Keine Daten zum Exportieren.",
+    "conversion_failed": "Datentransformierung zu CSV fehlgeschlagen.",
+    "sharing_unavailable": "Freigabe ist auf diesem Gerät nicht verfügbar.",
+    "export_failed": "CSV-Export fehlgeschlagen. Bitte versuchen Sie es erneut."
+  },
+  "layout": {
+    "statistics": {
+      "back": "Zurück",
+      "header_unit": "Einheit"
+    },
+    "student": {
+      "results": {
+        "header": "Ergebnisse"
+      },
+      "course": {
+        "header_all": "Alle Kurse",
+        "header_course": "Kurs",
+        "header_unit": "Einheit"
+      },
+      "profile": {
+        "header": "Profil"
+      }
+    },
+    "teacher": {
+      "course": {
+        "header_all": "Alle Kurse",
+        "header_course": "Kurs",
+        "header_unit": "Einheit"
+      },
+      "profile": {
+        "header": "Profil"
+      },
+      "setup": {
+        "header": "Kurs hinzufügen"
+      }
+    }
+  }
+}

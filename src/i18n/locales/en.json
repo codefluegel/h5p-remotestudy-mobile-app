@@ -1,0 +1,445 @@
+{
+  "intro": {
+    "slider": {
+      "heading": "Instant, lightweight H5P-Course hosting",
+      "heading1": "Create Interactive Content",
+      "heading2": "Learn Anywhere, Anytime",
+      "heading3": "Track Student Progress",
+      "subheading": "The easiest way to make your learning content available to your students",
+      "subheading1": "Create and share interactive H5P courses directly from your device",
+      "subheading2": "Students can access engaging content anytime, anywhere, even offline",
+      "subheading3": "Track progress and results with comprehensive analytics and sync"
+    },
+    "button": {
+      "next": "NEXT",
+      "start": "LET'S START"
+    }
+  },
+  "role": {
+    "title": {
+      "main": "Who are you?"
+    },
+    "card": {
+      "teacher_title": "Teacher",
+      "teacher_desc": "I'm an educator",
+      "student_title": "Student",
+      "student_desc": "I'm a learner"
+    },
+    "button": {
+      "select": "Select"
+    }
+  },
+  "login": {
+    "title": {
+      "register": "Register",
+      "login": "Login"
+    },
+    "success": {
+      "registered": "✓ Registration successful!",
+      "check_email": "Check your email for the verification link.",
+      "redirecting": "Redirecting to login..."
+    },
+    "info": {
+      "signup_title": "Create Your Account",
+      "signup_text": "Register with your email address. You will receive a verification link to activate your account. This link is required to access the platform. After this come back to the app.",
+      "login_title": "Welcome Back",
+      "login_text": "Sign in with your email and password to access your courses and learning materials."
+    },
+    "placeholder": {
+      "email": "E-Mail",
+      "password": "Password"
+    },
+    "button": {
+      "register": "Register",
+      "login": "Login"
+    },
+    "link": {
+      "switch_to_login": "Already have an account? Login",
+      "switch_to_register": "Don't have an account? Register",
+      "forgot_password": "Forgot password?",
+      "back_to_intro": "Back to role selection"
+    },
+    "toast": {
+      "registration_sent": "Registration link sent to your email.",
+      "error_register": "Registration failed",
+      "error_login": "Login failed"
+    },
+    "error": {
+      "email_required": "Please enter your email",
+      "password_required": "Please enter your password"
+    }
+  },
+  "reset_password": {
+    "title": {
+      "main": "Enter your email"
+    },
+    "info": {
+      "title": "Reset Your Password",
+      "text": "Enter your email address and we will send you a link to reset your password. Check your email and follow the instructions to create a new password."
+    },
+    "placeholder": {
+      "email": "E-Mail"
+    },
+    "button": {
+      "reset": "Reset"
+    },
+    "toast": {
+      "success": "Password reset link sent to your email.",
+      "error": "Password reset failed"
+    },
+    "error": {
+      "email_required": "Please enter your email"
+    }
+  },
+  "student": {
+    "tab": {
+      "courses": "Courses",
+      "results": "Results",
+      "profile": "Profile"
+    },
+    "header": {
+      "courses": "Courses",
+      "results": "Results",
+      "profile": "Profile"
+    }
+  },
+  "teacher": {
+    "tab": {
+      "courses": "Courses",
+      "add_course": "Add course",
+      "profile": "Profile"
+    },
+    "header": {
+      "all_courses": "All Courses",
+      "add_course": "Add Course",
+      "join_course": "Join Course"
+    }
+  },
+  "setup": {
+    "title": {
+      "create_course": "Create a New Course",
+      "explore_courses": "Explore Courses"
+    },
+    "info": {
+      "instructions": "To add a new course for your students; simply enter the course name and a download link to your H5P file below or upload a file.",
+      "student_ready": "You are all set to view and join available courses. Click the button below to get started!"
+    },
+    "placeholder": {
+      "course_name": "Course Name",
+      "download_link": "Download Link (e.g. .zip file)"
+    },
+    "link": {
+      "upload_file": "Upload file to get link"
+    },
+    "button": {
+      "download_course": "DOWNLOAD COURSE",
+      "view_courses": "VIEW COURSES"
+    },
+    "progress": {
+      "downloading": "Downloading course..."
+    },
+    "alert": {
+      "name_missing_title": "Course Name missing",
+      "name_missing_msg": "Please enter a name for your course.",
+      "link_needed_title": "Link Needed",
+      "link_needed_msg": "Please provide a valid download link.",
+      "invalid_link_title": "Invalid Link",
+      "invalid_link_msg": "The download link provided is not a valid URL.",
+      "download_failed_title": "Download Failed",
+      "download_failed_msg": "Could not download the course. Please check the link and try again."
+    }
+  },
+  "course": {
+    "empty": {
+      "no_courses_teacher": "No courses available. Please contact your teacher.",
+      "no_courses_student": "No courses available. Please contact your teacher."
+    }
+  },
+  "results": {
+    "empty": {
+      "no_results": "No results yet. Try completing a course to see your results here."
+    }
+  },
+  "course_units": {
+    "tab": {
+      "units": "Units",
+      "results": "Results",
+      "students": "Students"
+    },
+    "loading": "Download in Progress",
+    "download": {
+      "title": "Download course",
+      "body": "Download this course to access the units."
+    },
+    "alert": {
+      "delete_title": "Confirm Deletion",
+      "delete_msg": "Are you absolutely sure you want to delete the course \"{{course_name}}\"? This action cannot be undone.",
+      "clear_local_title": "Remove downloaded content?",
+      "clear_local_msg": "Remove downloaded content for \"{{course_name}}\" from this device? You can download it again later.",
+      "download_required_title": "Download required",
+      "download_required_msg": "Please download the course first.",
+      "download_missing_title": "Download link missing",
+      "download_missing_msg": "No download link is available for this course.",
+      "download_failed_title": "Download Failed",
+      "download_failed_msg": "Could not download the course. Please try again."
+    },
+    "button": {
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "download": "Download"
+    },
+    "sort": {
+      "label": "Sort",
+      "manual": "Manual",
+      "name_asc": "A-Z",
+      "name_desc": "Z-A"
+    },
+    "sort_groups": {
+      "label": "Groups",
+      "manual": "Manual",
+      "name_asc": "A-Z",
+      "name_desc": "Z-A"
+    }
+  },
+  "unit_webview": {
+    "toast": {
+      "offline": "Offline",
+      "saved_offline": "Results saved locally and will be uploaded later.",
+      "uploaded": "Results Uploaded",
+      "saved_success": "Your points have been saved successfully."
+    },
+    "error": {
+      "no_id": "No ID provided.",
+      "cannot_display": "This file cannot be displayed."
+    },
+    "loading": "Loading content..."
+  },
+  "statistics": {
+    "empty": {
+      "no_results": "No results for this unit.",
+      "no_units": "No units found for this course."
+    }
+  },
+  "user_list": {
+    "placeholder": {
+      "email": "Add user email"
+    },
+    "alert": {
+      "error_title": "Error",
+      "email_required": "Please enter an email address.",
+      "invalid_email": "Please enter a valid email address.",
+      "duplicate_email": "This email is already in the list.",
+      "fetch_failed": "Failed to fetch user list.",
+      "remove_failed": "Failed to remove user from server.",
+      "sharing_failed": "Failed to share invitation link. Please try again."
+    },
+    "toast": {
+      "share": "Check out the course in remote Stury app"
+    }
+  },
+  "modal": {
+    "group_select": {
+      "header": "Move to group",
+      "new_group": "New group"
+    },
+    "file_upload": {
+      "title": "Upload File",
+      "info": "Pick a file from your device. You cannot upload the same filename twice. Once the upload is done and checked; the download link will show up automatically below.",
+      "placeholder_filename": "Filename (e.g. course.zip)",
+      "placeholder_uri": "Local file URI (e.g. file:///... or content://...)",
+      "button": {
+        "pick": "Pick File",
+        "cancel": "Cancel",
+        "upload": "Upload",
+        "uploading": "Uploading..."
+      },
+      "alert": {
+        "filename_title": "Filename required",
+        "filename_msg": "Please provide a filename.",
+        "uri_title": "File URI required",
+        "uri_msg": "Please paste a local file URI (or use a picker) to upload.",
+        "failed_title": "Upload failed",
+        "failed_msg": "Could not upload file. Try again.",
+        "pick_title": "File pick failed",
+        "pick_msg": "Could not pick file. Try again."
+      }
+    },
+    "progress": {
+      "downloading": "Downloading course..."
+    },
+    "legal": {
+      "button_close": "Close"
+    },
+    "edit_unit": {
+      "label_title": "Title",
+      "label_group": "Select Group:",
+      "picker_none": "None",
+      "button_save": "SAVE"
+    },
+    "delete_account": {
+      "title": "Delete Account",
+      "warning": "This action cannot be undone. Your account and all associated data will be permanently deleted. Please enter your password to confirm.",
+      "label_password": "Password",
+      "placeholder_password": "Enter your password",
+      "button": {
+        "cancel": "Cancel",
+        "delete": "Delete Account",
+        "deleting": "Deleting..."
+      },
+      "alert": {
+        "error": "Error",
+        "password_required": "Please enter your password",
+        "failed": "Failed to delete account"
+      }
+    },
+    "status": {
+      "title": "Set Course Status",
+      "button": {
+        "new": "New Course",
+        "progress": "Course In Progress",
+        "completed": "Course Completed"
+      }
+    },
+    "add_group": {
+      "title": "Add Title",
+      "placeholder": "Title",
+      "button_save": "SAVE"
+    },
+    "two_button": {
+      "close": "✕"
+    },
+    "communication": {
+      "title": "Communication",
+      "button_share": "Share with user"
+    }
+  },
+  "submenu": {
+    "export_results": "Export results",
+    "sync_courses": "Sync courses",
+    "save_course": "Save course",
+    "clear_local_data": "Clear course data",
+    "delete_course": "Delete course",
+    "sync_results": "Sync pending results"
+  },
+  "profile": {
+    "label": {
+      "email": "Email:",
+      "role": "Role:"
+    },
+    "section": {
+      "legal": "Legal Information",
+      "language": "Language"
+    },
+    "language": {
+      "english": "English",
+      "german": "Deutsch"
+    },
+    "link": {
+      "impressum": "Imprint",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "button": {
+      "logout": "Log out",
+      "delete_account": "Delete Account",
+      "cancel": "Cancel",
+      "delete": "Delete"
+    },
+    "alert": {
+      "delete_title": "Delete Account?",
+      "delete_msg": "Are you sure you want to delete your account? This action cannot be undone."
+    },
+    "funding": {
+      "title": "Co-funded by the European Union",
+      "text": "Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them."
+    }
+  },
+  "header": {
+    "selection": {
+      "text": "Selected",
+      "move_link": "Move to group"
+    },
+    "group_move": {
+      "title": "Move to group"
+    },
+    "back": "Back"
+  },
+  "button": {
+    "floating": {
+      "group": "GROUP"
+    },
+    "edit": {
+      "cancel": "CANCEL",
+      "delete": "DELETE",
+      "save": "SAVE"
+    }
+  },
+  "units_tab": {
+    "loading": "Download in Progress",
+    "count_suffix": "items"
+  },
+  "results_table": {
+    "empty": "No result available",
+    "header": {
+      "main": "Overall Unit Score",
+      "type": "Type",
+      "raw": "Raw",
+      "max": "Max",
+      "section": "Section",
+      "points": "Points"
+    },
+    "cell_total": "Total",
+    "empty_scores": "No detailed scores found.",
+    "empty_sections": "No sections in the last breakdown entry.",
+    "error_format": "Unexpected result format."
+  },
+  "card": {
+    "course": {
+      "results": "Results",
+      "status_new": "NEW",
+      "toast_title": "Course Status",
+      "toast_msg": "This course is currently {status}. Only teachers can change the status."
+    }
+  },
+  "export": {
+    "error_title": "Export Error",
+    "missing_id": "Course ID is missing for export.",
+    "no_results": "No results found to export.",
+    "no_data": "No data to export.",
+    "conversion_failed": "Failed to convert data to CSV.",
+    "sharing_unavailable": "Sharing is not available on this device.",
+    "export_failed": "Failed to export CSV. Please try again."
+  },
+  "layout": {
+    "statistics": {
+      "back": "Back",
+      "header_unit": "Unit"
+    },
+    "student": {
+      "results": {
+        "header": "Results"
+      },
+      "course": {
+        "header_all": "All Courses",
+        "header_course": "Course",
+        "header_unit": "Unit"
+      },
+      "profile": {
+        "header": "Profile"
+      }
+    },
+    "teacher": {
+      "course": {
+        "header_all": "All Courses",
+        "header_course": "Course",
+        "header_unit": "Unit"
+      },
+      "profile": {
+        "header": "Profile"
+      },
+      "setup": {
+        "header": "Add Course"
+      }
+    }
+  }
+}
