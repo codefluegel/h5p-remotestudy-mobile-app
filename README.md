@@ -42,6 +42,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 ## License
 MIT License. See [LICENSE](LICENSE).
 
+### Open Source Request
+While the MIT License permits modifications and derivative works to be distributed under any license (including proprietary licenses), we kindly request that any modifications made to this project also be shared as open source. This helps the educational community benefit from improvements and ensures that the spirit of collaborative development continues. Although this request is not legally binding, we believe in maintaining transparency and openness in educational technology development.
+
 ## Code of Conduct
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
