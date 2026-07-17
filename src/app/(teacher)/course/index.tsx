@@ -22,6 +22,7 @@ import { Course } from '../../../utils/types';
 
 const styles = StyleSheet.create({
   wrapperView: {
+    flex: 1,
     marginBottom: 50, // tab bar height
   },
 });
@@ -94,7 +95,7 @@ const TeacherCoursesScreen = observer(() => {
           style={{ paddingBottom: 20 }}
         />
       ) : (
-        <View>
+        <View style={{ flex: 1 }}>
           <DimensionsFlatList
             data={courses}
             onPressStatus={(course: Course) => handleCourseStatusPress(course)}

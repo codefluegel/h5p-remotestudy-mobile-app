@@ -16,20 +16,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingRight: 15,
+    width: '100%',
+    paddingHorizontal: 12,
   },
   leftGroup: {
     flexDirection: 'row',
     alignItems: 'center',
+    flexShrink: 1,
   },
   closeButton: {
-    paddingRight: 10,
-    paddingVertical: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
   },
   countText: {
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
+    flexShrink: 1,
+  },
+  actionButton: {
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginLeft: 8,
   },
   actionText: {
     color: 'black',
@@ -57,7 +65,7 @@ const SelectionHeader = observer(
           </Text>
         </View>
 
-        <TouchableOpacity onPress={onMoveToGroup}>
+        <TouchableOpacity onPress={onMoveToGroup} style={styles.actionButton}>
           <Text style={styles.actionText}>
             {t('header.selection.move_link')}
           </Text>

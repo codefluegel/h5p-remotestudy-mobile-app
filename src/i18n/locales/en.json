@@ -383,7 +383,7 @@
     "header": {
       "main": "Overall Unit Score",
       "type": "Type",
-      "raw": "Raw",
+      "raw": "Score",
       "max": "Max",
       "section": "Section",
       "points": "Points"

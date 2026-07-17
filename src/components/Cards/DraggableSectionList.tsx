@@ -65,6 +65,7 @@ const DraggableSectionList = observer(
       <GestureHandlerRootView style={{ flex: 1 }}>
         <DraggableFlatList
           style={{ width: '100%' }}
+          contentContainerStyle={{ paddingBottom: 80 }}
           data={flatData}
           keyExtractor={listItem =>
             listItem.isHeader

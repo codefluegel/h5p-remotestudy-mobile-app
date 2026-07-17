@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
   Platform,
-  FlatList as RNFlatList,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -31,6 +31,14 @@ const isWeb = Platform.OS === 'web';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    minHeight: 0,
+  },
+  webSectionsScroll: {
+    flex: 1,
+    minHeight: 0,
+  },
+  webSectionsContent: {
+    paddingBottom: 80,
   },
   accordionHeader: {
     backgroundColor: 'white',
@@ -345,7 +353,11 @@ const UnitsTabs = observer(() => {
         headerLeft: () => null,
         headerRight: () => null,
         headerTintColor: 'black',
-        headerTitleAlign: 'left',
+        headerTitleAlign: 'center',
+        headerTitleContainerStyle: {
+          left: 0,
+          right: 0,
+        },
       });
     } else {
       navigation.setOptions({
@@ -635,90 +647,133 @@ const UnitsTabs = observer(() => {
           </View>
         </View>
       )}
-      {sections.map((section, index) => (
-        <ListItem.Accordion
-          key={section.title}
-          content={
-            <ListItem.Content style={styles.contentContainer}>
-              <View style={styles.numberCircle}>
-                <Text style={styles.numberText}>{index + 1}</Text>
-              </View>
-              <View style={styles.titleTextGroup}>
-                <View style={styles.titleRow}>
-                  <ListItem.Title style={styles.titleStyle}>
-                    {section.title}
-                  </ListItem.Title>
-                  <View style={styles.headerActions}>
-                    <TouchableOpacity
-                      style={styles.sortButton}
-                      onPress={() => toggleUnitSortMode(section.title)}
-                    >
-                      <Text style={styles.sortText}>
-                        {t('course_units.sort.label')}:{' '}
-                        {t(
-                          `course_units.sort.${getUnitSortMode(section.title)}`,
-                        )}
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-                <Text style={styles.subtitleStyle}>
-                  {`${section.data.length} items`}
-                </Text>
-              </View>
-            </ListItem.Content>
-          }
-          isExpanded={expandedId === section.title}
-          onPress={() => {
-            setExpandedId(expandedId === section.title ? null : section.title);
-          }}
-          containerStyle={styles.accordionHeader}
+      {isWeb ? (
+        <ScrollView
+          style={styles.webSectionsScroll}
+          contentContainerStyle={styles.webSectionsContent}
+          nestedScrollEnabled
         >
-          {expandedId === section.title &&
-            (isWeb ? (
-              <RNFlatList
-                data={section.data}
-                contentContainerStyle={{
-                  paddingBottom: 80,
-                }}
-                renderItem={({ item, index: idx }) =>
-                  renderWebItem(
-                    item,
-                    idx,
-                    section.title,
-                    section.data.length,
-                    getUnitSortMode(section.title),
-                  )
-                }
-                keyExtractor={item =>
-                  String(item.contentId ?? item.contentHash)
-                }
-                refreshing={refreshing}
-                onRefresh={onRefresh}
-              />
-            ) : (
-              <DraggableFlatList
-                data={section.data}
-                contentContainerStyle={{
-                  paddingBottom: 80,
-                }}
-                renderItem={renderItemForSection(section.title)}
-                keyExtractor={item =>
-                  String(item.contentId ?? item.contentHash)
-                }
-                onDragEnd={({ data }) =>
-                  handleDragEnd(
-                    data,
-                    section.title,
-                    getUnitSortMode(section.title),
-                  )
-                }
-                refreshing={refreshing}
-                onRefresh={onRefresh}
-              />
-            ))}
-        </ListItem.Accordion>
-      ))}
+          {sections.map((section, index) => (
+            <ListItem.Accordion
+              key={section.title}
+              content={
+                <ListItem.Content style={styles.contentContainer}>
+                  <View style={styles.numberCircle}>
+                    <Text style={styles.numberText}>{index + 1}</Text>
+                  </View>
+                  <View style={styles.titleTextGroup}>
+                    <View style={styles.titleRow}>
+                      <ListItem.Title style={styles.titleStyle}>
+                        {section.title}
+                      </ListItem.Title>
+                      <View style={styles.headerActions}>
+                        <TouchableOpacity
+                          style={styles.sortButton}
+                          onPress={() => toggleUnitSortMode(section.title)}
+                        >
+                          <Text style={styles.sortText}>
+                            {t('course_units.sort.label')}:{' '}
+                            {t(
+                              `course_units.sort.${getUnitSortMode(section.title)}`,
+                            )}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                    <Text style={styles.subtitleStyle}>
+                      {`${section.data.length} items`}
+                    </Text>
+                  </View>
+                </ListItem.Content>
+              }
+              isExpanded={expandedId === section.title}
+              onPress={() => {
+                setExpandedId(
+                  expandedId === section.title ? null : section.title,
+                );
+              }}
+              containerStyle={styles.accordionHeader}
+            >
+              {expandedId === section.title &&
+                section.data.map((item, idx) => (
+                  <View key={String(item.contentId ?? item.contentHash)}>
+                    {renderWebItem(
+                      item,
+                      idx,
+                      section.title,
+                      section.data.length,
+                      getUnitSortMode(section.title),
+                    )}
+                  </View>
+                ))}
+            </ListItem.Accordion>
+          ))}
+        </ScrollView>
+      ) : (
+        <View style={{ flex: 1, marginBottom: 150 }}>
+          {sections.map((section, index) => (
+            <ListItem.Accordion
+              key={section.title}
+              content={
+                <ListItem.Content style={styles.contentContainer}>
+                  <View style={styles.numberCircle}>
+                    <Text style={styles.numberText}>{index + 1}</Text>
+                  </View>
+                  <View style={styles.titleTextGroup}>
+                    <View style={styles.titleRow}>
+                      <ListItem.Title style={styles.titleStyle}>
+                        {section.title}
+                      </ListItem.Title>
+                      <View style={styles.headerActions}>
+                        <TouchableOpacity
+                          style={styles.sortButton}
+                          onPress={() => toggleUnitSortMode(section.title)}
+                        >
+                          <Text style={styles.sortText}>
+                            {t('course_units.sort.label')}:{' '}
+                            {t(
+                              `course_units.sort.${getUnitSortMode(section.title)}`,
+                            )}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                    <Text style={styles.subtitleStyle}>
+                      {`${section.data.length} items`}
+                    </Text>
+                  </View>
+                </ListItem.Content>
+              }
+              isExpanded={expandedId === section.title}
+              onPress={() => {
+                setExpandedId(
+                  expandedId === section.title ? null : section.title,
+                );
+              }}
+              containerStyle={styles.accordionHeader}
+            >
+              {expandedId === section.title && (
+                <DraggableFlatList
+                  data={section.data}
+                  renderItem={renderItemForSection(section.title)}
+                  keyExtractor={item =>
+                    String(item.contentId ?? item.contentHash)
+                  }
+                  onDragEnd={({ data }) =>
+                    handleDragEnd(
+                      data,
+                      section.title,
+                      getUnitSortMode(section.title),
+                    )
+                  }
+                  refreshing={refreshing}
+                  onRefresh={onRefresh}
+                />
+              )}
+            </ListItem.Accordion>
+          ))}
+        </View>
+      )}
     </View>
   );
 });

@@ -1,3 +1,5 @@
+import { File, Paths } from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 import React, {
   CSSProperties,
   ForwardedRef,
@@ -5,117 +7,23 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { Linking, Platform, StyleProp, ViewStyle } from 'react-native';
 import { WebView, WebViewMessageEvent } from 'react-native-webview';
 
+import {
+  buildBlobForwardingScript,
+  DownloadMessageData,
+  H5P_INJECTED_DOWNLOAD_BRIDGE_JS,
+  isDownloadLink,
+  parseDataUrlAsDownload,
+  resolveDownloadFilename,
+} from '../utils/h5pWebviewDownload';
 import { XAPIStatement } from '../utils/types';
 
 export type H5PContentWebviewForwardRef = { triggerXapiDataFetch: () => void };
 
-const injectedJS = `
-  // Set up listener for xAPI events
-  /*if (window.H5P) {
-    window.H5P.externalDispatcher.on('xAPI', function (event) {
-      window.ReactNativeWebView.postMessage(
-        JSON.stringify({
-          type: 'xAPI',
-          data: event.data.statement,
-        }),
-      );
-    });
-  } else {
-    document.addEventListener('h5pready', function () {
-      if (window.H5P && window.H5P.externalDispatcher) {
-        window.H5P.externalDispatcher.on('xAPI', function (event) {
-          window.ReactNativeWebView.postMessage(
-            JSON.stringify({
-              type: 'xAPI',
-              data: event.data.statement,
-            }),
-          );
-        });
-      }
-    });
-  }*/
-
-  try {
-    // Set viewport meta for mobile
-    let viewport = document.querySelector('meta[name=viewport]');
-    if (!viewport) {
-      viewport = document.createElement('meta');
-      viewport.name = 'viewport';
-      document.head.appendChild(viewport);
-    }
-    viewport.content =
-      'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
-
-    // Add h5p-mobile class to html and body
-    document.documentElement.classList.add('h5p-mobile');
-    document.body.classList.add('h5p-mobile');
-
-    // Set body to use full viewport for mobile
-    document.body.style.width = '100vw';
-    document.body.style.height = '100vh';
-
-    // Fix for Android audio controls not showing
-    const style = document.createElement('style');
-    style.textContent = \`
-      audio {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 54px !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-    \`;
-    document.head.appendChild(style);
-
-    if (window.H5P && window.H5P.instances && window.H5P.instances.length > 0) {
-      const instance = window.H5P.instances[0];
-      if (instance && typeof instance.trigger === 'function') {
-        instance.trigger('resize');
-      }
-    }
-  } catch (err) {}
-
-  // Listen for messages from React Native
-  document.addEventListener('message', function (event) {
-    try {
-      const msg = JSON.parse(event.data);
-      if (msg.type === 'customEvent') {
-        // Try to call getXAPIData on the main H5P instance
-        let xapiData = null;
-        try {
-          if (
-            window.H5P &&
-            window.H5P.instances &&
-            window.H5P.instances.length > 0
-          ) {
-            // Use the first instance by default
-            const instance = window.H5P.instances[0];
-            if (instance && typeof instance.getXAPIData === 'function') {
-              xapiData = instance.getXAPIData();
-            }
-          }
-        } catch (err) {
-          xapiData = { error: err.message };
-        }
-        window.ReactNativeWebView.postMessage(
-          JSON.stringify({
-            type: 'customEventResponse',
-            data: {
-              message: 'Received event in WebView',
-              payload: msg.payload,
-              xapiData,
-            },
-          }),
-        );
-      }
-    } catch (e) {}
-  });
-  true; // Return true to avoid console warnings
-`;
+const supportsExternalDownloadHandling =
+  Platform.OS === 'ios' || Platform.OS === 'macos' || Platform.OS === 'android';
 
 const H5PContentWebview = forwardRef(
   (
@@ -136,13 +44,44 @@ const H5PContentWebview = forwardRef(
   ) => {
     const webViewRef = useRef<WebView>(null);
 
+    const injectBlobUrlForwarding = (blobUrl: string) => {
+      webViewRef.current?.injectJavaScript(buildBlobForwardingScript(blobUrl));
+    };
+
+    const handleDownloadMessage = async ({
+      payload,
+      filename,
+      mimeType,
+    }: DownloadMessageData) => {
+      if (!payload) {
+        return;
+      }
+
+      const safeFilename = resolveDownloadFilename(filename, mimeType);
+      const file = new File(Paths.document, safeFilename);
+      file.create({ intermediates: true, overwrite: true });
+      file.write(payload, {
+        encoding: 'base64',
+      });
+
+      if (await Sharing.isAvailableAsync()) {
+        await Sharing.shareAsync(file.uri, {
+          mimeType: mimeType || 'application/octet-stream',
+          dialogTitle: safeFilename,
+        });
+        return;
+      }
+
+      Linking.openURL(file.uri).catch(() => undefined);
+    };
+
     useImperativeHandle(ref, () => ({
       triggerXapiDataFetch() {
         const message = JSON.stringify({
           type: 'customEvent',
           payload: { foo: 'bar', timestamp: Date.now() },
         });
-        // For iOS and Android compatibility
+
         webViewRef.current?.injectJavaScript(`
           (function() {
             var event = new MessageEvent('message', { data: '${message.replace(/'/g, "\\'")}' });
@@ -155,35 +94,74 @@ const H5PContentWebview = forwardRef(
 
     const handleMessage = async (event: WebViewMessageEvent) => {
       try {
-        const parsed = JSON.parse(event.nativeEvent.data);
+        const message = JSON.parse(event.nativeEvent.data) as {
+          type?: string;
+          data?: unknown;
+        };
 
-        const xAPIEventData = parsed.data.xapiData as XAPIStatement;
+        if (
+          message?.type === 'DOWNLOAD' &&
+          (message?.data as DownloadMessageData | undefined)?.payload
+        ) {
+          await handleDownloadMessage(message.data as DownloadMessageData);
+          return;
+        }
 
-        // console.log('Received xAPI Event Data:', JSON.stringify(xAPIEventData));
+        if (message?.type !== 'customEventResponse') {
+          return;
+        }
 
+        const xAPIEventData = (message.data as { xapiData: XAPIStatement })
+          .xapiData;
         xapiDataCallback(xAPIEventData);
-      } catch (error) {
-        console.warn('Error parsing xAPI event data:', error);
+      } catch {
+        onError();
       }
     };
+
     return (
       <WebView
         ref={webViewRef}
         key={`content-${contentId}`}
         source={{ uri: contentUrl }}
         style={style}
-        injectedJavaScript={injectedJS}
+        injectedJavaScript={H5P_INJECTED_DOWNLOAD_BRIDGE_JS}
         onMessage={handleMessage}
         javaScriptEnabled
-        onFileDownload={event => console.log(event)}
+        onFileDownload={event => {
+          if (!supportsExternalDownloadHandling) {
+            return;
+          }
+
+          const { downloadUrl } = event.nativeEvent;
+          if (downloadUrl) {
+            Linking.openURL(downloadUrl).catch(() => undefined);
+          }
+        }}
         onError={() => {
           onError();
         }}
         onShouldStartLoadWithRequest={request => {
-          if (request.url.startsWith('blob:')) {
-            console.warn('Blocked blob URL:', request.url);
-            return false; // prevent WebView from trying to open it
+          const dataUrlDownload = parseDataUrlAsDownload(request.url);
+          if (dataUrlDownload) {
+            handleDownloadMessage(dataUrlDownload).catch(() => undefined);
+            return false;
           }
+
+          if (request.url === 'about:blank') {
+            return false;
+          }
+
+          if (request.url.startsWith('blob:')) {
+            injectBlobUrlForwarding(request.url);
+            return false;
+          }
+
+          if (supportsExternalDownloadHandling && isDownloadLink(request.url)) {
+            Linking.openURL(request.url).catch(() => undefined);
+            return false;
+          }
+
           return true;
         }}
         mixedContentMode="always"
@@ -200,6 +178,7 @@ const H5PContentWebview = forwardRef(
         scalesPageToFit={false}
         cacheEnabled
         androidLayerType="hardware"
+        setSupportMultipleWindows={false}
       />
     );
   },

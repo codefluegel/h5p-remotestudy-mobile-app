@@ -67,11 +67,6 @@ export default class LocalH5pServer extends LocalH5pServerBase {
 
     const cacheUri = FileSystem.Paths.cache?.uri;
     const documentUri = FileSystem.Paths.document?.uri;
-    const bundleUri =
-      (FileSystem as { bundleDirectory?: string }).bundleDirectory ??
-      (FileSystem as { Paths?: { bundle?: { uri?: string } } }).Paths?.bundle
-        ?.uri ??
-      null;
 
     nodejs.channel.send({
       type: 'createServer',
@@ -80,7 +75,6 @@ export default class LocalH5pServer extends LocalH5pServerBase {
       documentDirectory: documentUri
         ? new URL(documentUri).pathname
         : documentUri,
-      bundleDirectory: bundleUri ? new URL(bundleUri).pathname : bundleUri,
     });
     // listen to messages from nodejs
     nodejs.channel.addListener('message', (message: unknown) => {

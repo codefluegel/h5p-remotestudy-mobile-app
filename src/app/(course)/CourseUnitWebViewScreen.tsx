@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import * as Network from 'expo-network';
-import { useLocalSearchParams, useNavigation } from 'expo-router';
+import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import { observer } from 'mobx-react';
 import React, {
   useCallback,
@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import {
   AppState,
   AppStateStatus,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -50,6 +51,7 @@ const CourseUnitWebViewScreen = observer(() => {
   const localServer = useLocalH5pServer();
   const [contentUrl, setContentUrl] = useState<string | null>(null);
   const navigation = useNavigation();
+  const router = useRouter();
   const h5pWebviewRef = useRef<H5PContentWebviewForwardRef>(null);
   const resultsRef = useRef<Record<string, { raw: number; max: number }>[]>([]);
   const [currentUnit, setCurrentUnit] = useState<Unit | null>();
@@ -217,6 +219,27 @@ const CourseUnitWebViewScreen = observer(() => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: currentUnit?.name ?? '',
+      ...(Platform.OS === 'web' && {
+        headerLeft: () => (
+          <TouchableOpacity
+            onPress={() => {
+              if (navigation.canGoBack()) {
+                navigation.goBack();
+              } else {
+                router.replace({
+                  pathname: isTeacher
+                    ? '/(teacher)/course/CourseUnitsScreen'
+                    : '/(students)/course/CourseUnitsScreen',
+                  params: { courseId },
+                });
+              }
+            }}
+            style={{ marginLeft: 8, padding: 4 }}
+          >
+            <Feather name="chevron-left" size={28} color="black" />
+          </TouchableOpacity>
+        ),
+      }),
       headerRight: () => (
         <TouchableOpacity onPress={saveUnit}>
           <Feather
@@ -228,7 +251,7 @@ const CourseUnitWebViewScreen = observer(() => {
         </TouchableOpacity>
       ),
     });
-  }, [navigation, currentUnit, saveUnit]);
+  }, [navigation, currentUnit, saveUnit, courseId, isTeacher, router]);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('beforeRemove', e => {

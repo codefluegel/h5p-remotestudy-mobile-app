@@ -212,7 +212,7 @@
       "no_id": "Keine ID angegeben.",
       "cannot_display": "Diese Datei kann nicht angezeigt werden."
     },
-    "loading": "Inhalte werden geladen..."
+    "loading": "Inhalte werden geladen.."
   },
   "statistics": {
     "empty": {
@@ -383,7 +383,7 @@
     "header": {
       "main": "Gesamtpunktzahl der Einheit",
       "type": "Typ",
-      "raw": "Roh",
+      "raw": "Punkte",
       "max": "Max",
       "section": "Abschnitt",
       "points": "Punkte"

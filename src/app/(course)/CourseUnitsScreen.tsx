@@ -148,6 +148,8 @@ const CourseUnitsScreen = observer(() => {
               );
               navigation.goBack();
             }
+            // TODO for student:
+            // delete Course
           },
         },
       ],
@@ -175,16 +177,16 @@ const CourseUnitsScreen = observer(() => {
           onPress: async () => {
             try {
               if (course.isDownloaded) {
+                courseStore.updateCourseById(String(courseId) ?? '', {
+                  isDownloaded: false,
+                });
+
                 await Promise.all(
                   course.units
                     .filter(unit => typeof unit.contentId === 'number')
                     .map(unit => localServer.deleteH5pContent(unit.contentId)),
                 );
               }
-
-              courseStore.updateCourseById(String(courseId) ?? '', {
-                isDownloaded: false,
-              });
 
               navigation.goBack();
             } catch (error) {
